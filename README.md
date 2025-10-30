@@ -6,13 +6,7 @@ Ce programme simule la prise de commandes di differents plats selon un menu
 
 Le programme permet :
 
-La gestion des clients et de leurs achats.
-
-La mise à jour automatique du stock après chaque achat.
-
-L'affichage d'un ticket de caisse récapitulatif à la fin des achats d’un client.
-
-L'édition d'un bilan de la journée listant les clients, le total de leurs achats et le stock restant.
+De simuler une prise de commande
 
 ## Fonctionnalités
 
