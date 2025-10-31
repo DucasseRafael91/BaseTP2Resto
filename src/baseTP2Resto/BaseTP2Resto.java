@@ -1,52 +1,64 @@
 package baseTP2Resto;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
 
 public class BaseTP2Resto {
 
+	/**
+	 * Fonction principale
+	 * @param args
+	 */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        //Hash map de hash maps qui contient tous les plats
         Map<String, Map<Integer, String>> allDishes = creation_dishes();
 
+        //Demande combien de commandes doivent etre faits
         System.out.println("Bonjour, combien de menus souhaitez-vous ?");
         int number_of_menus = scanner.nextInt();
         scanner.nextLine();
 
+        
+        //Boucle pour chaque menu
         for (int i = 1; i <= number_of_menus; i++) {
             List<String> menu = new ArrayList<>();
 
-            // Choix de l'entrée
+            // Choix de l'entrée pour le menu
             Map<Integer, String> entries = allDishes.get("entries");
             System.out.println("Veuillez entrer le numéro de l'entrée pour le menu n°" + i + " : " + entries);
             int num_entry_choose = scanner.nextInt();
             menu.add(entries.get(num_entry_choose));
 
-            // Choix du plat principal
+            // Choix du plat principal pour le menu
             Map<Integer, String> main_dishes = allDishes.get("main_dishes");
             System.out.println("Veuillez entrer le numéro du plat principal pour le menu n°" + i + " : " + main_dishes);
             int num_main_dish_choose = scanner.nextInt();
             menu.add(main_dishes.get(num_main_dish_choose));
 
-            // Choix de l'accompagnement
+            // Choix de l'accompagnement pour le menu
             Map<Integer, String> side_dishes = allDishes.get("side_dishes");
             System.out.println("Veuillez entrer le numéro de l'accompagnement pour le menu n°" + i + " : " + side_dishes);
             int num_side_dish_choose = scanner.nextInt();
             menu.add(side_dishes.get(num_side_dish_choose));
 
-            // Choix de la boisson
+            // Choix de la boisson pour le menu
             Map<Integer, String> beverage = allDishes.get("beverage");
             System.out.println("Veuillez entrer le numéro de la boisson pour le menu n°" + i + " : " + beverage);
             int num_beverage_choose = scanner.nextInt();
             menu.add(beverage.get(num_beverage_choose));
 
-            // Choix du dessert
+            // Choix du dessert pour le menu
             Map<Integer, String> desserts = allDishes.get("desserts");
             System.out.println("Veuillez entrer le numéro du dessert pour le menu n°" + i + " : " + desserts);
             int num_desserts_choose = scanner.nextInt();
             menu.add(desserts.get(num_desserts_choose));
 
-            // Affichage du menu
+            // Affichage du menu en cours
             System.out.println("Menu n°" + i + " : " + menu + "\n");
         }
 
@@ -56,11 +68,14 @@ public class BaseTP2Resto {
     public static Map<String, Map<Integer, String>> creation_dishes() {
         Map<String, Map<Integer, String>> dishes = new HashMap<>();
 
+        // Hash map qui contient toutes les entrées
         Map<Integer, String> entries = new HashMap<>();
         entries.put(1, "SALADE");
         entries.put(2, "SOUPE");
         entries.put(3, "QUICHE");
         entries.put(4, "AUCUNE");
+        
+        //Ajout des entrees dans la hash map dishes
         dishes.put("entries", entries);
 
         Map<Integer, String> main_dishes = new HashMap<>();
@@ -70,6 +85,8 @@ public class BaseTP2Resto {
         main_dishes.put(4, "VEGETARIEN");
         main_dishes.put(5, "VEGAN");
         main_dishes.put(6, "AUCUN");
+        
+        //Ajout des plats principaux dans la hash map dishes
         dishes.put("main_dishes", main_dishes);
 
         Map<Integer, String> side_dishes = new HashMap<>();
@@ -78,6 +95,8 @@ public class BaseTP2Resto {
         side_dishes.put(3, "FRITES");
         side_dishes.put(4, "LEGUMES");
         side_dishes.put(5, "AUCUN");
+        
+        //Ajout des accompagnements dans la hash map dishes
         dishes.put("side_dishes", side_dishes);
 
         Map<Integer, String> beverage = new HashMap<>();
@@ -86,6 +105,8 @@ public class BaseTP2Resto {
         beverage.put(3, "SODA");
         beverage.put(4, "VIN");
         beverage.put(5, "AUCUNE");
+        
+        //Ajout des boissons dans la hash map dishes
         dishes.put("beverage", beverage);
 
         Map<Integer, String> desserts = new HashMap<>();
@@ -93,6 +114,8 @@ public class BaseTP2Resto {
         desserts.put(2, "MOUSSE AU CHOCOLAT");
         desserts.put(3, "TIRAMISU");
         desserts.put(4, "AUCUN");
+        
+        //Ajout des desserts dans la hash map dishes
         dishes.put("desserts", desserts);
 
         return dishes;
